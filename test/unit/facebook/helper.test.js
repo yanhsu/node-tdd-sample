@@ -1,12 +1,13 @@
 import FacebookHelper from '../../../src/facebook/helper.js'
 
-describe('facebook-helper', () => {
+describe.skip('facebook-helper', () => {
   let facebookHelper = null;
 
   before((done) => {
     let userId = "861198730563404";
     let token = "EAACEdEose0cBAPh4KFxDSHWdWekcmp9R9jZBbRsC6lIqHkrZB9yOFggUns2vkfBhmp1kJM4QcEaCMLinddyCgUaA7niHhVRuoXC6yFfkoQccKiiPgaxqT0NNVXHAvNTHg3p4ZBv86Djjh1Cb2N5M6gprnhbfSZAcgpGLshDPHwZDZD";
     facebookHelper = new FacebookHelper({userId, token});
+    console.log(facebookHelper);
     done();
   });
 
@@ -23,6 +24,7 @@ describe('facebook-helper', () => {
     }
   });
 
+
   it("publish post", async (done) => {
     try {
       let post = {
@@ -35,7 +37,7 @@ describe('facebook-helper', () => {
       done(e);
     }
   });
-  it.only("message",async (done)=>{
+  it("message",async (done)=>{
     try {
       let result = await facebookHelper.message();
       console.log("result", result);
